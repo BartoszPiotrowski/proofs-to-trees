@@ -20,8 +20,9 @@ You can give another extension to the output, for instane `.png` instead of
 
 ## Examples
 
-![t102_relat_1__6_premises](https://raw.githubusercontent.com/BartoszPiotrowski/proofs-to-trees/master/examples/t102_relat_1__6_premises.png?token=AJXmh8Gbu1oHr65bxw14r-UgsHwfh6smks5cXIhRwA%3D%3D)
 
 ![t123_enumset1__4_premises](https://raw.githubusercontent.com/BartoszPiotrowski/proofs-to-trees/master/examples/t123_enumset1__4_premises.png?token=AJXmh4O8JJpuXBQaGP81lIN09l-yLGXtks5cXIifwA%3D%3D)
+
+![t102_relat_1__6_premises](https://raw.githubusercontent.com/BartoszPiotrowski/proofs-to-trees/master/examples/t102_relat_1__6_premises.png?token=AJXmh8Gbu1oHr65bxw14r-UgsHwfh6smks5cXIhRwA%3D%3D)
 
 ![t100_xboole_1__12_premises](https://raw.githubusercontent.com/BartoszPiotrowski/proofs-to-trees/master/examples/t100_xboole_1__12_premises.png?token=AJXmh8FKaeBy7cf06SgOXMstiNS2UOAlks5cXIjQwA%3D%3D)
