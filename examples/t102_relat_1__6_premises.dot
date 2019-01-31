@@ -1,0 +1,49 @@
+digraph {
+label="Proof from proofs/t102_relat_1__6_premises.tptp"
+labelloc="t"
+graph [fontname = "helvetica", fontsize=19]
+node [fontname = "helvetica"]
+edge [fontname = "helvetica"]
+FALSE [style=filled fillcolor=indianred1]
+t2_boole [style=filled]
+t48_xboole_1 [style=filled]
+l32_xboole_1 [style=filled]
+t100_relat_1 [style=filled]
+d10_xboole_0 [style=filled]
+t36_xboole_1 [style=filled]
+t102_relat_1 [style=filled fillcolor=grey50]
+"c_0_9" -> "c_0_24"
+"t100_relat_1" -> "c_0_12"
+"l32_xboole_1" -> "c_0_9"
+"c_0_19" -> "c_0_25"
+"c_0_24" -> "c_0_27"
+"c_0_20" -> "c_0_25"
+"c_0_29" -> "FALSE"
+"c_0_11" -> "c_0_15"
+"c_0_11" -> "c_0_23"
+"c_0_22" -> "c_0_26"
+"t2_boole" -> "c_0_7"
+"c_0_26" -> "FALSE"
+"t36_xboole_1" -> "c_0_16"
+"c_0_22" -> "c_0_28"
+"c_0_15" -> "c_0_20"
+"t102_relat_1" -> "c_0_17"
+"c_0_10" -> "c_0_15"
+"c_0_16" -> "c_0_21"
+"c_0_18" -> "c_0_23"
+"d10_xboole_0" -> "c_0_13"
+"c_0_7" -> "c_0_10"
+"c_0_22" -> "c_0_29"
+"c_0_12" -> "c_0_18"
+"c_0_13" -> "c_0_19"
+"c_0_28" -> "FALSE"
+"c_0_27" -> "FALSE"
+"c_0_23" -> "c_0_27"
+"t48_xboole_1" -> "c_0_8"
+"c_0_14" -> "c_0_20"
+"c_0_9" -> "c_0_14"
+"c_0_17" -> "c_0_22"
+"c_0_25" -> "c_0_27"
+"c_0_21" -> "c_0_25"
+"c_0_8" -> "c_0_11"
+}
