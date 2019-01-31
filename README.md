@@ -3,7 +3,7 @@
 ## Usage
 
 Having a proof in TPTP format, for instance `proofs/t123_enumset1__4_premises.tptp`
-'(which is output from `E` prover) you can run
+(which is output from `E` prover) you can run:
 
 ```
 python3 proof-to-tree.py proofs/t123_enumset1__4_premises.tptp examples/t123_enumset1__4_premises.pdf
