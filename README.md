@@ -18,6 +18,9 @@ produced by `Graphviz` package.
 You can give another extension to the output, for instane `.png` instead of
 `.pdf` and the script should respect it.
 
+Axioms used in the proof will be marked by light-grey color and a conjecure
+will be coloured darker.
+
 ## Examples
 
 
