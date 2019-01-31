@@ -2,7 +2,7 @@
 
 ## Usage
 
-Having a proof in TPTP format, for instance `[proofs/t123_enumset1__4_premises.tptp](https://github.com/BartoszPiotrowski/proofs-to-trees/blob/master/proofs/t123_enumset1__4_premises.tptp)`
+Having a proof in TPTP format, for instance [proofs/t123_enumset1__4_premises.tptp](https://github.com/BartoszPiotrowski/proofs-to-trees/blob/master/proofs/t123_enumset1__4_premises.tptp)
 (which is output from `E` prover) you can run:
 
 ```
