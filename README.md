@@ -15,7 +15,7 @@ This produces two files: `examples/t123_enumset1__4_premises.dot` and
 in DOT language, whereas the second file is a visualization of this graph
 produced by `Graphviz` package.
 
-You can give another extension to the output, for instane `.png` instead of
+You can give another extension to the output, for instance `.png` instead of
 `.pdf` and the script should respect it.
 
 Axioms used in the proof will be marked by light-grey color and a conjecure
