@@ -1,13 +1,9 @@
-import sys
-import argparse
 import re
-import subprocess
 
 
 def parse_tptp_proof(proof_file):
     with open(proof_file) as f:
         proof_lines = f.read().splitlines()
-
     proof_lines = [l for l in proof_lines if l and not l[0] == '#']
     proof_lines_words = [re.findall(r"[\w']+", l) for l in proof_lines]
     names = [ws[1] for ws in proof_lines_words]
@@ -33,3 +29,36 @@ def parse_tptp_proof(proof_file):
 
 def build_tree(start, deps):
     return {start: [build_tree(d, deps) for d in deps[start]]}
+
+
+def statements_dict(proof_file):
+    with open(proof_file) as f:
+        proof_lines = f.read().splitlines()
+    proof_lines = [l for l in proof_lines if l and not l[0] == '#']
+    proof_lines = [l.replace(' ','') for l in proof_lines]
+    proof_lines_cut = [','.join(l.split(',')[2:]) for l in proof_lines]
+    # TODO shorten below
+    proof_lines_words = [re.findall(r"[\w']+", l) for l in proof_lines]
+    names = [ws[1] for ws in proof_lines_words]
+    assert '($false)' in proof_lines[-1]
+    names[-1] = 'FALSE'
+    ###
+    statements = []
+    for l in proof_lines_cut:
+        if ',file(' in l:
+            statements.append(l.split(',file(')[0])
+        else:
+            statements.append(l.split(',inference(')[0])
+    for i in range(len(statements)):
+        if statements[i][0] == '(':
+            statements[i] = statements[i][1:-1]
+    assert len(statements) == len(proof_lines) == len(names)
+    statements_dict = {names[i]: statements[i] for i in range(len(names))}
+    return statements_dict
+
+
+def compact_tree(tree):
+    '''
+    Remove nodes which have only one parent.
+    '''
+    pass

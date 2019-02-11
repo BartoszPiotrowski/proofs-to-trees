@@ -1,6 +1,5 @@
 import sys
 import argparse
-import re
 import subprocess
 sys.path.append('.')
 from proof_to_tree import parse_tptp_proof, build_tree
