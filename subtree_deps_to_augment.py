@@ -28,6 +28,8 @@ if __name__ == '__main__':
     if args.compact:
         compact_tree = build_compact_tree('FALSE', deps)
         deps = deps_from_tree(compact_tree)
+        deps = {d: deps[d] for d in deps if len(deps[d]) > 1 \
+                and set(deps[d]) <= set(axioms)}
         for d in deps:
             print('{}#{}'.format(statements[d], ' '.join(deps[d])))
     else:
