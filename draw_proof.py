@@ -57,7 +57,7 @@ if __name__ == '__main__':
                         Name for the output picture. Its extension (eg. pdf or
                         png) determines format of the output.
                         """)
-    parser.add_argument('--compact', type=bool, default=False,
+    parser.add_argument('--compact', action='store_true',
                         help="Draw compact tree with removed intermediate steps.")
     args = parser.parse_args()
 

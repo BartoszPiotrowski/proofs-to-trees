@@ -19,7 +19,6 @@ def parse_tptp_proof(proof_file):
         ws = ws[2:]
         us = [w for w in ws if w in names]
         used.append(us)
-
     deps = dict(zip(names, used))
     for t in deps:
         if t in axioms or t in conjectures:
@@ -65,3 +64,26 @@ def statements_dict(proof_file):
     statements_dict = {names[i]: statements[i] for i in range(len(names))}
     return statements_dict
 
+def deps_from_tree(tree):
+    root = list(tree)[0]
+    deps = {}
+    def dft(t):
+        r = list(t)[0]
+        deps[r] = [list(d)[0] for d in t[r]]
+        for s in t[r]:
+            dft(s)
+    dft(tree)
+    return deps
+
+#import sys
+#f = sys.argv[1]
+#d, a, c = parse_tptp_proof(f)
+#t = build_tree('FALSE', d)
+#tc = build_compact_tree('FALSE', d)
+#dt = deps_from_tree(t)
+#dtc = deps_from_tree(tc)
+#for d in dt:
+#    print('{}:{}'.format(d, ' '.join(dt[d])))
+#print()
+#for d in dtc:
+#    print('{}:{}'.format(d, ' '.join(dtc[d])))
