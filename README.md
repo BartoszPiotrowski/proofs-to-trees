@@ -24,6 +24,14 @@ You can give another extension to the output, for instance `.png` instead of
 Axioms used in the proof will be marked by light-grey color and a conjecure
 will be coloured darker.
 
+There is also an option of drawing "compacted" proof trees, where intermediate
+nodes being the only parent of its children are removed. You can activate this
+option via the `--compact` flag:
+
+```
+python3 draw_proof.py proofs/t123_enumset1__4_premises.tptp examples/t123_enumset1__4_premises.pdf --compact True
+```
+
 ## Examples
 
 

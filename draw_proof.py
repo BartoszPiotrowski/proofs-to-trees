@@ -2,15 +2,16 @@ import sys
 import argparse
 import subprocess
 sys.path.append('.')
-from proof_to_tree import parse_tptp_proof, build_tree
+from proof_to_tree import parse_tptp_proof, build_tree, build_compact_tree
 
 
 def tree_to_dot_format(tree, title, axioms, conjectures):
+
     edges = []
 
     def add_edge(root, tree):
         for subtree in tree[root]:
-            child = list(subtree)[0]
+            child = list(subtree)[0] # subtree is a dict with one element
             edges.append('"' + child + '"' + ' -> ' + '"' + root + '"')
             add_edge(child, subtree)
     add_edge('FALSE', tree)
@@ -53,13 +54,18 @@ if __name__ == '__main__':
                         help="Input TPTP file with a proof to visualize.")
     parser.add_argument('output_file', type=str,
                         help="""
-                        Name for the output picture. Its extension (eg. pdf or png)
-                        determines a format of the output.
+                        Name for the output picture. Its extension (eg. pdf or
+                        png) determines format of the output.
                         """)
+    parser.add_argument('--compact', type=bool, default=False,
+                        help="Draw compact tree with removed intermediate steps.")
     args = parser.parse_args()
 
     deps, axioms, conjectures = parse_tptp_proof(args.proof_file)
-    tree = build_tree('FALSE', deps)
+    if args.compact:
+        tree = build_compact_tree('FALSE', deps)
+    else:
+        tree = build_tree('FALSE', deps)
     dot = tree_to_dot_format(
         tree,
         'Proof from ' +

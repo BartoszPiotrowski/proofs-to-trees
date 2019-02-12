@@ -31,6 +31,15 @@ def build_tree(start, deps):
     return {start: [build_tree(d, deps) for d in deps[start]]}
 
 
+def build_compact_tree(start, deps):
+    def bct(s):
+        if len(deps[s]) == 1:
+            return bct(deps[s][0])
+        else:
+            return {s: [bct(d) for d in deps[s]]}
+    return bct(start)
+
+
 def statements_dict(proof_file):
     with open(proof_file) as f:
         proof_lines = f.read().splitlines()
@@ -56,9 +65,3 @@ def statements_dict(proof_file):
     statements_dict = {names[i]: statements[i] for i in range(len(names))}
     return statements_dict
 
-
-def compact_tree(tree):
-    '''
-    Remove nodes which have only one parent.
-    '''
-    pass
