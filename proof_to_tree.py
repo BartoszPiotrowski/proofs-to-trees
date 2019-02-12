@@ -69,7 +69,7 @@ def deps_from_tree(tree):
     deps = {}
     def dft(t):
         r = list(t)[0]
-        deps[r] = [list(d)[0] for d in t[r]]
+        deps[r] = list(set([list(d)[0] for d in t[r]]))
         for s in t[r]:
             dft(s)
     dft(tree)
