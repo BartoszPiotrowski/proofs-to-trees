@@ -26,6 +26,7 @@ def parse_tptp_proof(proof_file):
     return deps, axioms, conjectures
 
 
+# (sub)tree is a dictionary with one element: {root: [child1, child2, ...]}
 def build_tree(start, deps):
     return {start: [build_tree(d, deps) for d in deps[start]]}
 
