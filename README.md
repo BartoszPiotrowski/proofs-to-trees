@@ -29,7 +29,7 @@ nodes being the only parent of its children are removed. You can activate this
 option via the `--compact` flag:
 
 ```
-python3 draw_proof.py proofs/t123_enumset1__4_premises.tptp examples/t123_enumset1__4_premises.pdf --compact True
+python3 draw_proof.py proofs/t123_enumset1__4_premises.tptp examples/t123_enumset1__4_premises.pdf --compact
 ```
 
 ## Examples
