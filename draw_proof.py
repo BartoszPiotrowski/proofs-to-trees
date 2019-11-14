@@ -64,12 +64,13 @@ if __name__ == '__main__':
     deps, axioms, conjectures = parse_tptp_proof(args.proof_file)
     if args.compact:
         tree = build_compact_tree('FALSE', deps)
+        title = 'Compacted proof from ' + args.proof_file
     else:
         tree = build_tree('FALSE', deps)
+        title = 'Proof from ' + args.proof_file
     dot = tree_to_dot_format(
         tree,
-        'Proof from ' +
-        args.proof_file,
+        title,
         axioms,
         conjectures)
     draw(dot, args.output_file)
