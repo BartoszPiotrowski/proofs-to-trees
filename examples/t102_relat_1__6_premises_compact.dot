@@ -1,0 +1,29 @@
+digraph {
+label="Proof from proofs/t102_relat_1__6_premises.tptp"
+labelloc="t"
+graph [fontname = "helvetica", fontsize=19]
+node [fontname = "helvetica"]
+edge [fontname = "helvetica"]
+FALSE [style=filled fillcolor=indianred1]
+t2_boole [style=filled]
+t48_xboole_1 [style=filled]
+l32_xboole_1 [style=filled]
+t100_relat_1 [style=filled]
+d10_xboole_0 [style=filled]
+t36_xboole_1 [style=filled]
+t102_relat_1 [style=filled fillcolor=grey50]
+"c_0_15" -> "c_0_20"
+"t48_xboole_1" -> "c_0_15"
+"t2_boole" -> "c_0_15"
+"t102_relat_1" -> "FALSE"
+"t36_xboole_1" -> "c_0_25"
+"t48_xboole_1" -> "c_0_23"
+"c_0_27" -> "FALSE"
+"d10_xboole_0" -> "c_0_25"
+"c_0_23" -> "c_0_27"
+"c_0_20" -> "c_0_25"
+"l32_xboole_1" -> "c_0_20"
+"c_0_25" -> "c_0_27"
+"t100_relat_1" -> "c_0_23"
+"l32_xboole_1" -> "c_0_27"
+}

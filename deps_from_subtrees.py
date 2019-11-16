@@ -88,6 +88,8 @@ if __name__ == '__main__':
     if args.mode == 'root_and_leaves':
         for rlh in root_leaves_heigh_s:
             root_st = statements[rlh[0]]
+            # intersection with axioms because of, e.g. introduction(definition)
+            # in the proofs -- leave which is not an axiom
             leaves = set(rlh[1]).intersection(set(axioms))
             leaves = sorted(leaves)
             if not root_st == '$false':
@@ -96,7 +98,7 @@ if __name__ == '__main__':
         for rlh in root_leaves_heigh_s:
             if not conjecture in rlh[1]:
                 root_st = statements[rlh[0]]
-                leaves = set(rlh[1]).intersection(set(axioms) | {conjecture})
+                leaves = set(rlh[1]).intersection( set(axioms) | {conjecture} )
                 leaves = sorted(leaves)
                 print(f'{root_st}#{" ".join(leaves)}#{rlh[2]}')
     elif args.mode == 'conj_and_other_leaves':

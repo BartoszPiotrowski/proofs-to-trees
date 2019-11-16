@@ -1,0 +1,20 @@
+digraph {
+label="Compacted proof of Theorem t123_enumset"
+labelloc="t"
+graph [fontname = "helvetica", fontsize=19]
+node [fontname = "helvetica"]
+edge [fontname = "helvetica"]
+FALSE [style=filled fillcolor=indianred1]
+t72_enumset1 [style=filled]
+t113_enumset1 [style=filled]
+t107_enumset1 [style=filled]
+t123_enumset1 [style=filled fillcolor=grey50]
+"t123_enumset1" -> "c_0_14"
+"c_0_13" -> "c_0_15"
+"c_0_15" -> "FALSE"
+"t113_enumset1" -> "c_0_13"
+"t72_enumset1" -> "c_0_14"
+"c_0_14" -> "FALSE"
+"t72_enumset1" -> "c_0_13"
+"t107_enumset1" -> "c_0_15"
+}

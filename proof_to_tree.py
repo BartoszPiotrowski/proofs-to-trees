@@ -1,4 +1,4 @@
-import re
+import re, sys
 
 
 def parse_tptp_proof(proof_file):
@@ -11,6 +11,7 @@ def parse_tptp_proof(proof_file):
     names[-1] = 'FALSE'
     axioms = [names[i]
               for i in range(len(names)) if 'axiom' in proof_lines_words[i]]
+    # ^ sometimes this criterion is not enough... (e.g there is some bug in E)
     conjectures = [
         names[i] for i in range(
             len(names)) if 'conjecture' in proof_lines_words[i]]
@@ -20,6 +21,12 @@ def parse_tptp_proof(proof_file):
         us = [w for w in ws if w in names]
         used.append(us)
     deps = dict(zip(names, used))
+    no_axioms = []
+    # see the comment above that word 'axiom' is not enough
+    for t in deps:
+        if set(deps[t]) - {t}:
+            no_axioms.append(t)
+    axioms = set(axioms) - set(no_axioms)
     for t in deps:
         if t in axioms or t in conjectures:
             deps[t] = []
@@ -49,7 +56,7 @@ def statements_dict(proof_file):
     # TODO shorten below
     proof_lines_words = [re.findall(r"[\w']+", l) for l in proof_lines]
     names = [ws[1] for ws in proof_lines_words]
-    assert '($false)' in proof_lines[-1]
+    assert '($false)' in proof_lines[-1], proof_file
     names[-1] = 'FALSE'
     ###
     statements = []
