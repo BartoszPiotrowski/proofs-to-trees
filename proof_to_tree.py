@@ -7,7 +7,7 @@ def parse_tptp_proof(proof_file):
     proof_lines = [l for l in proof_lines if l and not l[0] == '#']
     proof_lines_words = [re.findall(r"[\w']+", l) for l in proof_lines]
     names = [ws[1] for ws in proof_lines_words]
-    assert '($false)' in proof_lines
+    assert '($false)' in ''.join(proof_lines), proof_file
     names[-1] = 'FALSE'
     axioms = [names[i]
               for i in range(len(names)) if 'axiom' in proof_lines_words[i]]
@@ -56,7 +56,7 @@ def statements_dict(proof_file):
     # TODO shorten below
     proof_lines_words = [re.findall(r"[\w']+", l) for l in proof_lines]
     names = [ws[1] for ws in proof_lines_words]
-    assert '($false)' in proof_lines, proof_file
+    assert '($false)' in ''.join(proof_lines), proof_file
     names[-1] = 'FALSE'
     ###
     statements = []
