@@ -57,6 +57,7 @@ if __name__ == '__main__':
                         help="Input TPTP file with a proof.")
     parser.add_argument('--compact', action='store_true',
                         help="Use compacted proof trees.")
+    parser.add_argument('--print_conj_and_file', action='store_true')
     parser.add_argument('--mode', default='root_and_leaves',
                         choices=['root_and_leaves',
                                  'root_and_axioms',
@@ -101,7 +102,10 @@ if __name__ == '__main__':
                 root_st = statements[rlh[0]]
                 leaves = set(rlh[1]).intersection( set(axioms) | {conjecture} )
                 leaves = sorted(leaves)
-                print(f'{root_st}#{" ".join(leaves)}#{rlh[2]}')
+                if args.print_conj_and_file:
+                    print(f'{root_st}#{" ".join(leaves)}#{rlh[2]}#{conjecture}#{args.proof_file}')
+                else:
+                    print(f'{root_st}#{" ".join(leaves)}#{rlh[2]}')
     elif args.mode == 'conj_and_other_leaves':
         for rlh in root_leaves_heigh_s:
             if conjecture in rlh[1]:
