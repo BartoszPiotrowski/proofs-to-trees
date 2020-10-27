@@ -80,7 +80,7 @@ if __name__ == '__main__':
     statements = statements_dict(args.proof_file)
     deps, axioms, conjectures = parse_tptp_proof(args.proof_file)
     #print(axioms); sys.exit()
-    assert len(conjectures) == 1
+    assert len(conjectures) == 1, args.proof_file
     conjecture = conjectures[0]
     if args.compact:
         tree = build_compact_tree('FALSE', deps)
