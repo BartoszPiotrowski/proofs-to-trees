@@ -4,7 +4,8 @@ import re, sys
 def parse_tptp_proof(proof_file):
     with open(proof_file) as f:
         proof_lines = f.read().splitlines()
-    proof_lines = [l for l in proof_lines if l and not l[0] == '#']
+    #proof_lines = [l for l in proof_lines if l and not l[0] == '#']
+    proof_lines = [l for l in proof_lines if l and ('fof(' in l or 'cnf(' in l)]
     proof_lines_words = [re.findall(r"[\w']+", l) for l in proof_lines]
     names = [ws[1] for ws in proof_lines_words]
     assert '($false)' in ''.join(proof_lines), proof_file
@@ -50,7 +51,8 @@ def build_compact_tree(start, deps):
 def statements_dict(proof_file):
     with open(proof_file) as f:
         proof_lines = f.read().splitlines()
-    proof_lines = [l for l in proof_lines if l and not l[0] == '#']
+    #proof_lines = [l for l in proof_lines if l and not l[0] == '#']
+    proof_lines = [l for l in proof_lines if l and ('fof(' in l or 'cnf(' in l)]
     proof_lines = [l.replace(' ','') for l in proof_lines]
     proof_lines_cut = [','.join(l.split(',')[2:]) for l in proof_lines]
     # TODO shorten below
