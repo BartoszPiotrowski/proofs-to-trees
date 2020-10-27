@@ -66,14 +66,9 @@ def statements_dict(proof_file):
         else:
             statements.append(l.split(',inference(')[0])
     for i in range(len(statements)):
-        try:
-            if statements[i][0] == '(':
-                statements[i] = statements[i][1:-1]
-        except:
-            print(statements)
-            print()
-            print(statements[i])
-            print(proof_file)
+        assert statements[i], proof_file
+        if statements[i][0] == '(':
+            statements[i] = statements[i][1:-1]
     assert len(statements) == len(proof_lines) == len(names)
     statements_dict = {names[i]: statements[i] for i in range(len(names))}
     return statements_dict
